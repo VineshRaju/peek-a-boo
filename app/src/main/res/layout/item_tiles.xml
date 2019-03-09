@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <import type="app.vineshbuilds.peekaboo.TileVm.TileState"/>
+        <import type="kotlin.jvm.functions.Function1"/>
+        <import type="app.vineshbuilds.peekaboo.TileVm"/>
+        <variable name="vm" type="TileVm"/>
+        <variable name="onTap" type="Function1&lt;TileVm,kotlin.Unit&gt;"/>
+    </data>
+    <androidx.appcompat.widget.AppCompatTextView
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/display"
+            tools:text="1"
+            android:layout_margin="4dp"
+            android:text="@{vm.shouldShow ? vm.display : null}"
+            android:background="@{vm.shouldShow ? @color/white :  @color/colorPrimaryDark}"
+            android:gravity="center"
+            android:onClick="@{() -> onTap.invoke(vm)}"
+            tools:background="@color/colorPrimaryDark"
+            android:textSize="32sp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"/>
+</layout>
